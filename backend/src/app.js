@@ -1,0 +1,36 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import agendamentoRoutes from './models/AgendamentoRoutes.js';
+
+//Carrega variáveis de ambinete 
+dotenv.config();
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+// Conectar ao MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('✅ MongoDB conectado com sucesso!');
+  })
+  .catch(() => {
+    console.log.error('❌ Erro ao conectar ao MongoDB:', erro);
+    process.exit(1);
+  });
+
+  // Rotas
+  app.use('/api/agendamentos', agendamentoRoutes);
+
+  // health Check (Opcional - verificar se server está rodando)
+  app.get('/api/health', (req, res) => {
+    res.json({
+      sucesso: true,
+      mensagem: 'Servidor rodando com sucesso!'
+    });
+  });
+
+  export default app;
