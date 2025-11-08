@@ -1,23 +1,20 @@
-// Booking.jsx - Formulário de agendamento
-
 import { useState } from "react";
 
 function Booking() {
-  // Estados do fomulário
   const [formData, setFormData] = useState({
-    name: '',
-    mail: '',
-    phone: '',
-    service: 'Massagem Relaxante',
-    date: '',
-    time: ''
+    nome: '',
+    email: '',
+    telefone: '',
+    servico: 'Massagem Relaxante',
+    dataAgendamento: '',
+    horario: '',
+    observacoes: ''
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
 
-  // Atualiza estado quando digita
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -25,32 +22,42 @@ function Booking() {
     }))
   }
 
-  // Enviar formulário
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitMessage('')
 
     try {
-      //Simular envio (depois conectaremo com Backend)
-      console.log('Dados do agendamento:', formData)
-
-      setSubmitMessage('✅ Agendamento recebido! Entraremos em contato em breve.')
-
-      // Limpa formulário
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: 'Massagem Relaxante',
-        date: '',
-        time: ''
+      const response = await fetch('http://localhost:5000/api/agendamentos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
       })
-     } catch (error) {
-  console.log('Erro ao agendar:', error)
-  setSubmitMessage('❌ Erro ao agendar. Tente novamente.')
-} finally {
-  setIsSubmitting(false)
-}
+
+      const data = await response.json()
+
+      if (data.sucesso) {
+        setSubmitMessage('✅ Agendamento criado com sucesso! Verifique seu email.')
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          servico: 'Massagem Relaxante',
+          dataAgendamento: '',
+          horario: '',
+          observacoes: ''
+        })
+      } else {
+        setSubmitMessage(`❌ Erro: ${data.erro}`)
+      }
+    } catch (error) {
+      console.error('Erro ao agendar:', error)
+      setSubmitMessage('❌ Erro ao conectar. Servidor está rodando?')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -64,8 +71,8 @@ function Booking() {
             <label>Nome Completo *</label>
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="nome"
+              value={formData.nome}
               onChange={handleChange}
               required
               placeholder="Seu nome"
@@ -90,11 +97,11 @@ function Booking() {
             <label>Telefone/WhatsApp *</label>
             <input
               type="tel"
-              name="phone"
-              value={formData.phone}
+              name="telefone"
+              value={formData.telefone}
               onChange={handleChange}
               required
-              placeholder="(51) 9999-8888"
+              placeholder="(51) 98765-4321"
             />
           </div>
 
@@ -102,16 +109,19 @@ function Booking() {
           <div className="form-group">
             <label>Serviço Desejado *</label>
             <select
-              name="service"
-              value={formData.service}
+              name="servico"
+              value={formData.servico}
               onChange={handleChange}
               required
             >
+              <option>Limpeza de Pele</option>
+              <option>Hidratação Facial</option>
+              <option>Peeling</option>
               <option>Massagem Relaxante</option>
               <option>Drenagem Linfática</option>
-              <option>Massagem Terapêutica</option>
-              <option>Massagem Modeladora</option>
-              <option>Hot Stone (Pedras Quentes)</option>
+              <option>Tratamento Anti-idade</option>
+              <option>Depilação</option>
+              <option>Design de Sobrancelhas</option>
             </select>
           </div>
 
@@ -120,8 +130,8 @@ function Booking() {
             <label>Data Desejada *</label>
             <input
               type="date"
-              name="date"
-              value={formData.date}
+              name="dataAgendamento"
+              value={formData.dataAgendamento}
               onChange={handleChange}
               required
             />
@@ -130,12 +140,34 @@ function Booking() {
           {/* Hora */}
           <div className="form-group">
             <label>Hora *</label>
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
+            <select
+              name="horario"
+              value={formData.horario}
               onChange={handleChange}
               required
+            >
+              <option value="">Selecione um horário</option>
+              <option>09:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>14:00</option>
+              <option>15:00</option>
+              <option>16:00</option>
+              <option>17:00</option>
+              <option>18:00</option>
+            </select>
+          </div>
+
+          {/* Observações */}
+          <div className="form-group">
+            <label>Observações</label>
+            <textarea
+              name="observacoes"
+              value={formData.observacoes}
+              onChange={handleChange}
+              placeholder="Alguma anotação importante?"
+              rows="4"
             />
           </div>
 
