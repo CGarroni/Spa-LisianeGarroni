@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
-import dotenev from 'dotenev';
+import dotenv from 'dotenv';
 
-dotenev.config();
+dotenv.config();
 
 // Criar transportador (configuração SMTP)
 const transporter = nodemailer.createTransport({
@@ -58,7 +58,7 @@ export async function enviarEmailConfirmacao(agendamento) {
     from: process.env.SMTP_USER,
     to: agendamento.email,
     subject: `Confirmação de Agendamento - ${servico}`,
-    hmtl: htmlContent
+    html: htmlContent
   };
 
   try {
@@ -107,6 +107,14 @@ export async function enviarEmailCancelamento(agendamento) {
       </p>
     </div> 
   `;
+
+  const mailOptions = {
+    from: process.env.SMTP_USER,
+    to: agendamento.email,
+    subject: `Agendamento Cancelado - ${servico}`,
+    html: htmlContent
+};
+
 
   try {
     await transporter.sendMail(mailOptions);

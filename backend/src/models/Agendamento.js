@@ -10,10 +10,10 @@ const agendamentoSchema = new mongoose.Schema({
   },
   email: {
     type: String, 
-    require: [true, 'Email é obrigatório'],
+    required: [true, 'Email é obrigatório'],
     trim: true,
     lowercase: true,
-    mactch: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Email inválido']
+    match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Email inválido']
   },
   telefone: {
     type: String,
@@ -27,7 +27,7 @@ const agendamentoSchema = new mongoose.Schema({
     enum: {
       values: [
         'Limpeza de Pele',
-        'Hidratação Facila',
+        'Hidratação Facial',
         'Peeling',
         'Massagem Relaxante',
         'Drenagem Linfática',
@@ -52,14 +52,14 @@ const agendamentoSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Horário é obrigatório'],
     enum: {
-      value: [
+      values: [
         '09:00', '10:00', '11:00', '12:00',
         '14:00', '15:00', '16:00', '17:00', '18:00'
       ],
       message: 'Horário selecionado não está disponível'
     }
   },
-  obervacoes: {
+  obsrvacoes: {
     type: String,
     trim: true,
     maxlength: [500, 'Observações não podem ter mais que 500 caracteres']

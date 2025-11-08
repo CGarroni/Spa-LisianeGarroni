@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import agendamentoRoutes from './models/AgendamentoRoutes.js';
+import agendamentoRoutes from './routes/agendamentoRoutes.js';
 
 //Carrega variáveis de ambinete 
 dotenv.config();

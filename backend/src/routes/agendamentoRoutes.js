@@ -1,25 +1,24 @@
 import express from 'express';
-import * as agendamentoControler from '../controllers/agendamentoController';
+import * as agendamentoController from '../controllers/agendamentoController.js';
 
 const routes = express.Router();
 
 // CREATE - POST /api/agendamentos
-routes.post('/', agendamentoControler.criar);
+routes.post('/', agendamentoController.criar);
 
-// READ - GET /api/agendametos 
-routes.get('/', agendamentoControler.listar);
+// READ - GET /api/agendamentos
+routes.get('/', agendamentoController.listar);
 
-// READ - GET /api/agendametos/:id
-routes.get('/:id', agendamentoControler.buscarPorId);
+// READ - GET /api/agendamentos/confirmar/:token
+routes.get('/confirmar/:token', agendamentoController.confirmar);
 
-// UPDATE - PUT /api/agendametos/:id
-routes.put('/:id', agendamentoControler.atualizar):
+// READ - GET /api/agendamentos/:id
+routes.get('/:id', agendamentoController.buscarPorId);
 
+// UPDATE - PUT /api/agendamentos/:id
+routes.put('/:id', agendamentoController.atualizar);
 
-// DELETE - DELETE /api/agendametos/:id
-routes.delete('/:id', agendamentoControler.deletar);
-
-// CONFIRM - GET /api/agendametos/confirmar/:token
-routes.get('/confirm/:token', agendamentoControler.confirmar);
+// DELETE - DELETE /api/agendamentos/:id
+routes.delete('/:id', agendamentoController.deletar);
 
 export default routes;

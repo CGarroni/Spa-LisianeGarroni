@@ -65,7 +65,8 @@ export const criarAgendamentoSchema = Joi.object({
 export const atualizarAgendamentoSchema = Joi.object({
   status: Joi.string()
   .valid('pendente', 'confirmado', 'cancelado', 'concluido')
-  .message({
+  .required()
+  .messages({
     'any.only': 'Status inválido'
   }),
 
@@ -73,7 +74,7 @@ export const atualizarAgendamentoSchema = Joi.object({
   .max(500)
   .trim()
   .allow('')
-  .message({
+  .messages({
     'string.max': 'Observações não podem ter mais que 500 caracteres'
   })
 }).min(1);
