@@ -72,7 +72,9 @@ const agendamentoSchema = new mongoose.Schema({
    tokenConfirmacao: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    sparse: true,
+  index: true
   },
     confirmadoEm: {
     type: Date,
@@ -86,7 +88,7 @@ const agendamentoSchema = new mongoose.Schema({
 // Índices para performance
 agendamentoSchema.index({ email: 1 });
 agendamentoSchema.index({ dataAgendamento: 1, horario: 1 });
-agendamentoSchema.index({ tokenConfirmacao: 1 });
+
 
 // Método para gerar token de confirmação
 agendamentoSchema.methods.gerarTokenConfirmacao = function() {
@@ -97,7 +99,11 @@ agendamentoSchema.methods.gerarTokenConfirmacao = function() {
 
 // Virtual para data formatada
 agendamentoSchema.virtual('dataFormatada').get(function() {
-  return this.dataAgendamento.toLocaleDateString('pt-BR', {
+  const data = new Date(this.dataAgendamento);
+  // Corrigir fuso horário (-3 para Brasília)
+  data.setHours(data.getHours() + 3);
+  
+  return data.toLocaleDateString('pt-BR', {
     day: '2-digit',
     month: '2-digit', 
     year: 'numeric'

@@ -1,6 +1,6 @@
 import Agendamento from '../models/Agendamento.js';
 import { criarAgendamentoSchema, atualizarAgendamentoSchema } from '../validations/agendamentoValidation.js';
-import { enviarEmailConfirmacao, enviarEmailCancelamento } from '../services/emailServices.js';
+import { enviarEmailConfirmacao, enviarEmailSpa, enviarEmailCancelamento } from '../services/emailServices.js';
 
 // CREATE - Criar novo agendamento
 export async function criar(req, res) {
@@ -26,6 +26,10 @@ export async function criar(req, res) {
 
     // 5. Envia email de confirmação
     await enviarEmailConfirmacao(agendamento);
+//      Delay de 1 segundo para evitar "Too many emails"
+// await new Promise(resolve => setTimeout(resolve, 1000));
+
+//await enviarEmailSpa(agendamento);
 
     // 6. Retorna resposta
     return res.status(201).json({
