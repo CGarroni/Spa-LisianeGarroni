@@ -22,7 +22,7 @@ export const criarAgendamentoSchema = Joi.object({
     }),
 
   telefone: Joi.string()
-    .pattern(/^\(\d{2}\)\s\d{4,5}-\d{4}$/)
+    .pattern(/^(\(?\d{2}\)?\s?)?\d{4,5}-?\d{4}$/)
     .required()
     .messages({
       'string.pattern.base': 'Telefone deve estar no formato (xx) xxxxx-xxxx',

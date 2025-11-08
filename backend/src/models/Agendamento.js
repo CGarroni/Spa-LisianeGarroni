@@ -19,7 +19,7 @@ const agendamentoSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Telefone é obrigatório'],
     trim: true,
-    match: [/^\(\d{2}\)\s\d{4,5}-\d{4}$/, 'Telefone deve estar no formato (xx) xxxxx-xxxx']
+    match: [/^(\(?\d{2}\)?\s?)?\d{4,5}-?\d{4}$/, 'Telefone deve estar no formato válido']
   },
   servico: {
     type: String,
@@ -31,7 +31,7 @@ const agendamentoSchema = new mongoose.Schema({
         'Peeling',
         'Massagem Relaxante',
         'Drenagem Linfática',
-        'tratamento Anti-idade',
+        'Tratamento Anti-idade',
         'Depilação',
         'Design de Sobrancelhas'
       ],
@@ -59,7 +59,7 @@ const agendamentoSchema = new mongoose.Schema({
       message: 'Horário selecionado não está disponível'
     }
   },
-  obsrvacoes: {
+  observacoes: {
     type: String,
     trim: true,
     maxlength: [500, 'Observações não podem ter mais que 500 caracteres']

@@ -10,7 +10,10 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -19,15 +22,15 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('✅ MongoDB conectado com sucesso!');
   })
-  .catch(() => {
-    console.log.error('❌ Erro ao conectar ao MongoDB:', erro);
+  .catch((erro) => {
+    console.error('❌ Erro ao conectar ao MongoDB:', erro);
     process.exit(1);
   });
 
   // Rotas
   app.use('/api/agendamentos', agendamentoRoutes);
 
-  // health Check (Opcional - verificar se server está rodando)
+  // health Check 
   app.get('/api/health', (req, res) => {
     res.json({
       sucesso: true,
