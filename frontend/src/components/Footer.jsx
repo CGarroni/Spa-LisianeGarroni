@@ -14,7 +14,7 @@ function Footer() {
 
           <div className="footer-section">
             <h4>Contato</h4>
-            <p>📞 (51) 51999308532</p>
+            <p>📞 (51)999308532</p>
             <p>✉️ lisianegarroni@gmail.com</p>
             <p>📍 Av. Borges de Medeiros, 2500 sala 908 Porto Alegre - RS</p>
           </div>
