@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import About from './components/About'
 import Gallery from './components/Gallery'
+import VideoSection from './components/VideoSection'
 import Booking from './components/Booking'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -18,6 +19,7 @@ function App() {
       <Services />
       <About />
       <Gallery />
+      <VideoSection />
       <Booking />
       <Footer />
        <WhatsAppButton />
