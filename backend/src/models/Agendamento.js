@@ -26,14 +26,15 @@ const agendamentoSchema = new mongoose.Schema({
     required: [true, 'Serviço é obrigatório'],
     enum: {
       values: [
-        'Limpeza de Pele',
-        'Hidratação Facial',
-        'Peeling',
         'Massagem Relaxante',
-        'Drenagem Linfática',
-        'Tratamento Anti-idade',
-        'Depilação',
-        'Design de Sobrancelhas'
+        'Drenagem Linfática Tradicional',
+        'Reiki',
+        'Miracle Touch',
+        'Drenagem Linfática Renata França',
+        'Miracle Face',
+        'Day Spa',
+        'Spa Renata França',
+        'Meu Momento Miracle'
       ],
       message: 'Serviço selecionado não está disponível'
     }

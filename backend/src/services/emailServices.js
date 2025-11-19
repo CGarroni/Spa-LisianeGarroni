@@ -53,7 +53,7 @@ export async function enviarEmailConfirmacao(agendamento) {
 
     <p style="color: #7f8c8d; font-size: 12px;">
       <strong>Dúvidas?</strong> Entre em contato conosco pelo WhatsApp: 
-      <a href="https://wa.me/5551998467866" style="color: #27ae60;">+55 51 99846-7866</a>
+      <a href="https://wa.me/5551999308532" style="color: #27ae60;">+55 51 99846-7866</a>
     </p>
 
     <p style="color: #7f8c8d; font-size: 12px; text-align: center; margin-top: 20px;">
@@ -226,7 +226,7 @@ export async function enviarEmailLembrete(agendamento) {
     </p>
 
     <div style="text-align: center; margin: 30px 0;">
-      <a href="https://wa.me/5551998467866" 
+      <a href="https://wa.me/5551999308532" 
          style="background-color: #27ae60; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block;">
         💬 Confirmar pelo WhatsApp
       </a>

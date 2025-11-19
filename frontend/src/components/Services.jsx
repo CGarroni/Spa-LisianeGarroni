@@ -12,7 +12,7 @@ function Services() {
   const therapists = [
     {
       id: 1,
-      name: "CÉLIA & PALOMA (Métodos tradicionais)",
+      name: "Métodos tradicionais",
       services: [
         {
           id: 1,
@@ -60,7 +60,7 @@ function Services() {
     },
     {
       id: 2,
-      name: "LISIANE GARRONI (Métodos Renata França)",
+      name: "Métodos Renata França",
       services: [
         {
           id: 4,
