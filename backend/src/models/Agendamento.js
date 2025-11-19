@@ -53,8 +53,11 @@ const agendamentoSchema = new mongoose.Schema({
     required: [true, 'Horário é obrigatório'],
     enum: {
       values: [
-        '09:00', '10:00', '11:00', '12:00',
-        '14:00', '15:00', '16:00', '17:00', '18:00'
+        // Segunda a Sexta: 08:00 - 19:00
+      '08:00', '09:00', '10:00', '11:00', '12:00',
+      '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00',
+      // Sábado: 09:00 - 12:00
+      '09:00-sab', '10:00-sab', '11:00-sab', '12:00-sab'
       ],
       message: 'Horário selecionado não está disponível'
     }

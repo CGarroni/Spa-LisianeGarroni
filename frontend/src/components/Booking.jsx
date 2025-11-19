@@ -140,23 +140,30 @@ function Booking() {
           {/* Hora */}
           <div className="form-group">
             <label>Hora *</label>
-            <select
-              name="horario"
-              value={formData.horario}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Selecione um horário</option>
-              <option>09:00</option>
-              <option>10:00</option>
-              <option>11:00</option>
-              <option>12:00</option>
-              <option>14:00</option>
-              <option>15:00</option>
-              <option>16:00</option>
-              <option>17:00</option>
-              <option>18:00</option>
-            </select>
+            <select name="horario" value={formData.horario} onChange={handleChange} required>
+  <option value="">Selecione um horário</option>
+  <optgroup label="Segunda a Sexta (08:00 - 19:00)">
+    <option value="08:00">08:00</option>
+    <option value="09:00">09:00</option>
+    <option value="10:00">10:00</option>
+    <option value="11:00">11:00</option>
+    <option value="12:00">12:00</option>
+    <option value="13:00">13:00</option>
+    <option value="14:00">14:00</option>
+    <option value="15:00">15:00</option>
+    <option value="16:00">16:00</option>
+    <option value="17:00">17:00</option>
+    <option value="18:00">18:00</option>
+    <option value="19:00">19:00</option>
+  </optgroup>
+  <optgroup label="Sábado (09:00 - 12:00)">
+    <option value="09:00-sab">09:00</option>
+    <option value="10:00-sab">10:00</option>
+    <option value="11:00-sab">11:00</option>
+    <option value="12:00-sab">12:00</option>
+  </optgroup>
+</select>
+
           </div>
 
           {/* Observações */}

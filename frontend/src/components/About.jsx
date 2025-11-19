@@ -20,7 +20,7 @@ function About() {
                   <ul>
                     <li> Terapeutas experientes e certificadas no Método Renata França</li>
                     <li> Ambiente relaxante, aconchegante e acolhedor</li>
-                    <li> Produtos naturais e de alta qualidade</li>
+                    <li> Produtos Premium e de alta qualidade</li>
                     <li> Atendimento personalizado</li>
                     <li> Resultados visíveis desde a primeira sessão</li>
                     <li> Localização privilegiada em Porto Alegre</li>
