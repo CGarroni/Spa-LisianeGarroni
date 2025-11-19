@@ -108,21 +108,25 @@ function Booking() {
           {/* Serviço */}
           <div className="form-group">
             <label>Serviço Desejado *</label>
-            <select
-              name="servico"
-              value={formData.servico}
-              onChange={handleChange}
-              required
-            >
-              <option>Limpeza de Pele</option>
-              <option>Hidratação Facial</option>
-              <option>Peeling</option>
-              <option>Massagem Relaxante</option>
-              <option>Drenagem Linfática</option>
-              <option>Tratamento Anti-idade</option>
-              <option>Depilação</option>
-              <option>Design de Sobrancelhas</option>
-            </select>
+            <select name="servico" value={formData.servico} onChange={handleChange} required>
+  <option value="">Selecione um serviço</option>
+  
+  <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ MÉTODOS TRADICIONAIS ━━━</option>
+  <option value="Massagem Relaxante">Massagem Relaxante - R$ 150,00</option>
+  <option value="Drenagem Linfática Tradicional">Drenagem Linfática Tradicional - R$ 165,00</option>
+  <option value="Reiki">Reiki - R$ 120,00</option>
+
+  <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ MÉTODOS RENATA FRANÇA ━━━</option>
+  <option value="Miracle Touch">Miracle Touch - R$ 460,00</option>
+  <option value="Drenagem Linfática Renata França">Drenagem Linfática Renata França - R$ 360,00</option>
+  <option value="Miracle Face">Miracle Face - R$ 240,00</option>
+
+  <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ NOSSOS PACOTES ━━━</option>
+  <option value="Day Spa">Day Spa - R$ 300,00</option>
+  <option value="Spa Renata França">Spa Renata França - R$ 550,00</option>
+  <option value="Seu Momento Miracle">Seu Momento Miracle - R$ 640,00</option>
+</select>
+
           </div>
 
           {/* Data */}

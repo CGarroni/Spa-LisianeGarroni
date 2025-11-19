@@ -145,8 +145,9 @@ body {
   }
 
   .nav.active {
-    max-height: 300px;
+    max-height: 700px;
     padding: 20px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   }
 
   .nav a {
