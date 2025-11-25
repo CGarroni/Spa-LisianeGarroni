@@ -27,38 +27,43 @@ function Booking() {
     setIsSubmitting(true)
     setSubmitMessage('')
 
+    console.log('FormData enviando:', formData)
+    console.log('JSON:', JSON.stringify(formData))
+
     try {
-      const response = await fetch('https://spa-lisianegarroni.onrender.com/api/agendamentos', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+    const response = await fetch('https://spa-lisianegarroni.onrender.com/api/agendamentos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+
+    console.log('Response:', response)
+    const data = await response.json()
+    console.log('Data recebida:', data)
+
+    if (data.sucesso) {
+      setSubmitMessage('✅ Agendamento criado com sucesso! Verifique seu email.')
+      setFormData({
+        nome: '',
+        email: '',
+        telefone: '',
+        servico: 'Massagem Relaxante',
+        dataAgendamento: '',
+        horario: '',
+        observacoes: ''
       })
-
-      const data = await response.json()
-
-      if (data.sucesso) {
-        setSubmitMessage('✅ Agendamento criado com sucesso! Verifique seu email.')
-        setFormData({
-          nome: '',
-          email: '',
-          telefone: '',
-          servico: 'Massagem Relaxante',
-          dataAgendamento: '',
-          horario: '',
-          observacoes: ''
-        })
-      } else {
-        setSubmitMessage(`❌ Erro: ${data.erro}`)
-      }
-    } catch (error) {
-      console.error('Erro ao agendar:', error)
-      setSubmitMessage('❌ Erro ao conectar. Servidor está rodando?')
-    } finally {
-      setIsSubmitting(false)
+    } else {
+      setSubmitMessage(`❌ Erro: ${data.erro}`)
     }
+  } catch (error) {
+    console.error('Erro ao agendar:', error)
+    setSubmitMessage('❌ Erro ao conectar. Servidor está rodando?')
+  } finally {
+    setIsSubmitting(false)
   }
+}
 
   return (
     <section id="booking" className="booking">

@@ -34,7 +34,7 @@ const agendamentoSchema = new mongoose.Schema({
         'Miracle Face',
         'Day Spa',
         'Spa Renata França',
-        'Meu Momento Miracle'
+        'Seu Momento Miracle'
       ],
       message: 'Serviço selecionado não está disponível'
     }
@@ -44,8 +44,12 @@ const agendamentoSchema = new mongoose.Schema({
     required: [true, 'Data do agendamento é obrigatória'],
     validate: {
       validator: function(data) {
-        return data > new Date();
-      },
+      // Converter para Date se for string
+      const dataObj = new Date(data);
+      const agora = new Date();
+      agora.setHours(0, 0, 0, 0);
+      return dataObj >= agora;
+    },
       message: 'Data do agendamento deve ser futura'
     }
   },
