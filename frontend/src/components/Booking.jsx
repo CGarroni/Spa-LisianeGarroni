@@ -28,7 +28,7 @@ function Booking() {
     setSubmitMessage('')
 
     try {
-      const response = await fetch('http://localhost:5000/api/agendamentos', {
+      const response = await fetch('https://spa-lisianegarroni.onrender.com/api/agendamentos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
