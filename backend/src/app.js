@@ -18,14 +18,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // Conectar ao MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log('✅ MongoDB conectado com sucesso!');
-  })
-  .catch((erro) => {
-    console.error('❌ Erro ao conectar ao MongoDB:', erro);
-    process.exit(1);
-  });
+// mongoose.connect(process.env.MONGODB_URI)
+//   .then(() => {
+//     console.log('✅ MongoDB conectado com sucesso!');
+//   })
+//   .catch((erro) => {
+//     console.error('❌ Erro ao conectar ao MongoDB:', erro);
+//     process.exit(1);
+//   });
 
   // Rotas
   app.use('/api/agendamentos', agendamentoRoutes);
