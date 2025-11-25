@@ -1,19 +1,19 @@
 import Joi from "joi";
 
 export const criarAgendamentoSchema = Joi.object({
-	nome: Joi.string()
+  nome: Joi.string()
     .required()
     .min(2)
     .max(100)
     .trim()
     .messages({
-		"string.empty": "Nome é obrigatório",
-		"string.min": "Nome deve ter pelo menos 2 caracteres",
-		"string.max": "Nome não pode ter mais que 100 caracteres",
-	}),
+      "string.empty": "Nome é obrigatório",
+      "string.min": "Nome deve ter pelo menos 2 caracteres",
+      "string.max": "Nome não pode ter mais que 100 caracteres",
+    }),
 
   email: Joi.string()
-	  .email()
+    .email()
     .required()
     .lowercase()
     .messages({
@@ -30,7 +30,17 @@ export const criarAgendamentoSchema = Joi.object({
     }),
 
   servico: Joi.string()
-    .valid('Limpeza de Pele', 'Hidratação Facial', 'Peeling', 'Massagem Relaxante', 'Drenagem Linfática', 'Tratamento Anti-idade', 'Depilação', 'Design de Sobrancelhas')
+    .valid(
+      'Massagem Relaxante',
+      'Drenagem Linfática Tradicional',
+      'Reiki',
+      'Miracle Touch',
+      'Drenagem Linfática Renata França',
+      'Miracle Face',
+      'Day Spa',
+      'Spa Renata França',
+      'Seu Momento Miracle'
+    )
     .required()
     .messages({
       'any.only': 'Serviço selecionado não está disponível',
@@ -46,14 +56,18 @@ export const criarAgendamentoSchema = Joi.object({
     }),
     
   horario: Joi.string()
-    .valid('09:00', '10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00', '18:00')
+    .valid(
+      '08:00', '09:00', '10:00', '11:00', '12:00',
+      '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00',
+      '09:00-sab', '10:00-sab', '11:00-sab', '12:00-sab'
+    )
     .required()
     .messages({
       'any.only': 'Horário selecionado não está disponível',
       'string.empty': 'Horário é obrigatório'
     }),
   
-   observacoes: Joi.string()
+  observacoes: Joi.string()
     .max(500)
     .trim()
     .allow('')
@@ -64,17 +78,17 @@ export const criarAgendamentoSchema = Joi.object({
 
 export const atualizarAgendamentoSchema = Joi.object({
   status: Joi.string()
-  .valid('pendente', 'confirmado', 'cancelado', 'concluido')
-  .required()
-  .messages({
-    'any.only': 'Status inválido'
-  }),
+    .valid('pendente', 'confirmado', 'cancelado', 'concluido')
+    .required()
+    .messages({
+      'any.only': 'Status inválido'
+    }),
 
   observacoes: Joi.string()
-  .max(500)
-  .trim()
-  .allow('')
-  .messages({
-    'string.max': 'Observações não podem ter mais que 500 caracteres'
-  })
+    .max(500)
+    .trim()
+    .allow('')
+    .messages({
+      'string.max': 'Observações não podem ter mais que 500 caracteres'
+    })
 }).min(1);
