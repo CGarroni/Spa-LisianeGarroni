@@ -1,0 +1,21 @@
+{
+  "builds": [
+    {
+      "src": "frontend",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/confirmar/.*",
+      "dest": "/confirmar.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
