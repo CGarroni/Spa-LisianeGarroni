@@ -10,20 +10,32 @@ import {
 } from "../services/emailServices.js";
 
 // CREATE - Criar novo agendamento
+// CREATE - Criar novo agendamento
 export async function criar(req, res) {
-	try {
-		// 1. Valida com Joi
-		const { error, value } = criarAgendamentoSchema.validate(req.body);
+  try {
+    console.log('📥 REQ.BODY:', req.body);
+    
+    // 1. Valida com Joi
+    const { error, value } = criarAgendamentoSchema.validate(req.body, {
+      abortEarly: false,
+      stripUnknown: false,
+      convert: true
+    });
 
-		if (error) {
-			return res.status(400).json({
-				sucesso: false,
-				erro: error.details[0].message,
-			});
-		}
+    console.log('✅ JOI VALUE:', value);
+    console.log('❌ JOI ERROR:', error);
 
-		// 2. Cria instância do agendamento
-		const agendamento = new Agendamento(value);
+    if (error) {
+      return res.status(400).json({
+        sucesso: false,
+        erro: error.details[0].message,
+      });
+    }
+
+    // 2. Cria instância do agendamento
+    const agendamento = new Agendamento(value);
+    console.log('📦 AGENDAMENTO ANTES DE SALVAR:', agendamento.toObject());
+
 
 		// 3. Gera token de confirmação
 		agendamento.gerarTokenConfirmacao();
