@@ -43,10 +43,10 @@ export async function enviarEmailConfirmacao(agendamento) {
     </div>
 
     <div style="text-align: center; margin: 30px 0;">
-      <a href="${process.env.FRONTEND_URL}/confirmar/${agendamento.tokenConfirmacao}" 
-         style="background-color: #27ae60; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block;">
-        ✓ Confirmar Agendamento
-      </a>
+      <a href="${process.env.FRONTEND_URL}/confirmar.html?token=${agendamento.tokenConfirmacao}" 
+   style="background-color: #27ae60; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block;">
+  ✓ Confirmar Agendamento
+</a>
     </div>
 
     <hr style="border: none; border-top: 1px solid #ecf0f1; margin: 20px 0;">
