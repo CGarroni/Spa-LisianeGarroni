@@ -10,7 +10,7 @@ routes.post('/', agendamentoController.criar);
 routes.get('/', agendamentoController.listar);
 
 // READ - GET /api/agendamentos/confirmar/:token
-routes.get('/confirmar/:token', agendamentoController.confirmar);
+routes.post('/confirmar/:token', agendamentoController.confirmar);
 
 // READ - GET /api/agendamentos/:id
 routes.get('/:id', agendamentoController.buscarPorId);
