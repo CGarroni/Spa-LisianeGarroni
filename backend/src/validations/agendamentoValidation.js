@@ -51,7 +51,7 @@ export const criarAgendamentoSchema = Joi.object({
     .greater('now')
     .required()
     .messages({
-      'date.greater': 'Data do agendamento deve ser futura',
+      'date.greater': 'Data do agendamento deve ser de pelo menos 24 horas de antecedência',
       'any.required': 'Data do agendamento é obrigatória'
     }),
     

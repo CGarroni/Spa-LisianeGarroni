@@ -50,7 +50,7 @@ const agendamentoSchema = new mongoose.Schema({
       agora.setHours(0, 0, 0, 0);
       return dataObj >= agora;
     },
-      message: 'Data do agendamento deve ser futura'
+      message: 'Data do agendamento deve ser de pelo menos 24 horas de antecedência'
     }
   },
   horario: {
