@@ -252,6 +252,7 @@ export async function confirmar(req, res) {
 		return res.status(500).json({
 			sucesso: false,
 			erro: "Erro ao confirmar agendamento",
+			detalhes: error.message,
 		});
 	}
 }
