@@ -232,7 +232,7 @@ export async function confirmar(req, res) {
 		// Atualiza status e confirmadoEm
 		agendamento.status = "confirmado";
 		agendamento.confirmadoEm = new Date();
-		agendamento.tokenConfirmacao = null;
+		agendamento.tokenConfirmacao = undefined;
 		await agendamento.save();
 
 		return res.status(200).json({
