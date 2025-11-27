@@ -213,46 +213,61 @@ export async function deletar(req, res) {
 
 // CONFIRM - Confirmar agendamento via token
 export async function confirmar(req, res) {
-	try {
-		const { token } = req.params;
+  try {
+    const { token } = req.params;
 
-		// Busca agendamento pelo token
-		const agendamento = await Agendamento.findOne({
-			tokenConfirmacao: token,
-			confirmadoEm: null,
-		});
+    console.log('🔍 Buscando agendamento com token:', token);
 
-		if (!agendamento) {
-			return res.status(404).json({
-				sucesso: false,
-				erro: "Token inválido ou agendamento já confirmado",
-			});
-		}
+    // Busca agendamento pelo token
+    const agendamento = await Agendamento.findOne({
+      tokenConfirmacao: token,
+      confirmadoEm: null,
+    });
 
-		// Atualiza status e confirmadoEm
-		agendamento.status = "confirmado";
-		agendamento.confirmadoEm = new Date();
-		agendamento.tokenConfirmacao = undefined;
-		await agendamento.save();
+    console.log('📦 Agendamento encontrado:', agendamento ? 'Sim' : 'Não');
 
-		return res.status(200).json({
-			sucesso: true,
-			mensagem: "Agendamento confirmado com sucesso!",
-			agendamento: {
-				_id: agendamento._id,
-				nome: agendamento.nome,
-				servico: agendamento.servico,
-				dataAgendamento: agendamento.dataFormatada,
-				horario: agendamento.horario,
-				status: agendamento.status,
-			},
-		});
-	} catch (error) {
-		console.error("Erro ao confirmar agendamento:", error);
-		return res.status(500).json({
-			sucesso: false,
-			erro: "Erro ao confirmar agendamento",
-			detalhes: error.message,
-		});
-	}
+    if (!agendamento) {
+      return res.status(404).json({
+        sucesso: false,
+        erro: "Token inválido ou agendamento já confirmado",
+      });
+    }
+
+    // Atualiza com updateOne e $unset - MELHOR FORMA
+    console.log('💾 Confirmando agendamento...');
+    await Agendamento.updateOne(
+      { _id: agendamento._id },
+      {
+        $set: {
+          status: "confirmado",
+          confirmadoEm: new Date(),
+        },
+        $unset: { tokenConfirmacao: 1 },
+      }
+    );
+    console.log('✅ Agendamento confirmado com sucesso!');
+
+    // Busca o agendamento atualizado para retornar
+    const agendamentoAtualizado = await Agendamento.findById(agendamento._id);
+
+    return res.status(200).json({
+      sucesso: true,
+      mensagem: "Agendamento confirmado com sucesso!",
+      agendamento: {
+        _id: agendamentoAtualizado._id,
+        nome: agendamentoAtualizado.nome,
+        servico: agendamentoAtualizado.servico,
+        dataAgendamento: agendamentoAtualizado.dataFormatada,
+        horario: agendamentoAtualizado.horario,
+        status: agendamentoAtualizado.status,
+      },
+    });
+  } catch (error) {
+    console.error("Erro ao confirmar agendamento:", error);
+    return res.status(500).json({
+      sucesso: false,
+      erro: "Erro ao confirmar agendamento",
+      detalhes: error.message,
+    });
+  }
 }
