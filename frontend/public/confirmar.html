@@ -54,36 +54,60 @@
 
   <script>
     async function confirmar() {
-      const token = window.location.pathname.split('/').pop();
-      
-      const title = document.getElementById('title');
-      const message = document.getElementById('message');
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+  
+  const title = document.getElementById('title');
+  const message = document.getElementById('message');
 
-      try {
-        const response = await fetch(
-          `https://spa-lisianegarroni.onrender.com/api/agendamentos/confirmar/${token}`,
-          { method: 'POST' }
-        );
+  if (!token) {
+    title.textContent = '❌ Token Inválido';
+    title.className = 'error';
+    message.textContent = 'Nenhum token foi fornecido na URL';
+    return;
+  }
 
-        const data = await response.json();
+  try {
+    // Criar um AbortController com timeout de 30 segundos
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
-        if (data.sucesso) {
-          title.textContent = '✅ Agendamento Confirmado!';
-          title.className = 'success';
-          message.textContent = 'Seu agendamento foi confirmado com sucesso!';
-        } else {
-          title.textContent = '❌ Erro na Confirmação';
-          title.className = 'error';
-          message.textContent = data.erro || 'Erro ao confirmar agendamento';
-        }
-      } catch (error) {
-        title.textContent = '❌ Erro';
-        title.className = 'error';
-        message.textContent = 'Erro ao conectar com o servidor';
+    const response = await fetch(
+      `https://spa-lisianegarroni.onrender.com/api/agendamentos/confirmar/${token}`,
+      { 
+        method: 'POST',
+        signal: controller.signal
       }
-    }
+    );
 
-    confirmar();
+    clearTimeout(timeoutId);
+
+    const data = await response.json();
+
+    if (data.sucesso) {
+      title.textContent = '✅ Agendamento Confirmado!';
+      title.className = 'success';
+      message.textContent = 'Seu agendamento foi confirmado com sucesso!';
+    } else {
+      title.textContent = '❌ Erro na Confirmação';
+      title.className = 'error';
+      message.textContent = data.erro || 'Erro ao confirmar agendamento';
+    }
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      title.textContent = '⏳ Demorando...';
+      title.className = 'error';
+      message.textContent = 'Servidor está acordando. Aguarde alguns segundos e tente novamente.';
+    } else {
+      title.textContent = '❌ Erro';
+      title.className = 'error';
+      message.textContent = 'Erro ao conectar com o servidor';
+    }
+  }
+}
+
+confirmar();
+
   </script>
 </body>
 </html>
