@@ -39,7 +39,7 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use('/api/agendamentos', agendamentoRoutes);
 
 // health Check 
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({
     sucesso: true,
     mensagem: 'Servidor rodando com sucesso!'
