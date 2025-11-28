@@ -13,17 +13,12 @@ import {
 // CREATE - Criar novo agendamento
 export async function criar(req, res) {
   try {
-    console.log('📥 REQ.BODY:', req.body);
-    
     // 1. Valida com Joi
     const { error, value } = criarAgendamentoSchema.validate(req.body, {
       abortEarly: false,
       stripUnknown: false,
       convert: true
     });
-
-    console.log('✅ JOI VALUE:', value);
-    console.log('❌ JOI ERROR:', error);
 
     if (error) {
       return res.status(400).json({
@@ -34,7 +29,6 @@ export async function criar(req, res) {
 
     // 2. Cria instância do agendamento
     const agendamento = new Agendamento(value);
-    console.log('📦 AGENDAMENTO ANTES DE SALVAR:', agendamento.toObject());
 
     // 3. Gera token de confirmação
     agendamento.gerarTokenConfirmacao();
@@ -222,15 +216,11 @@ export async function confirmar(req, res) {
   try {
     const { token } = req.params;
 
-    console.log('🔍 Buscando agendamento com token:', token);
-
     // Busca agendamento pelo token
     const agendamento = await Agendamento.findOne({
       tokenConfirmacao: token,
       confirmadoEm: null,
     });
-
-    console.log('📦 Agendamento encontrado:', agendamento ? 'Sim' : 'Não');
 
     if (!agendamento) {
       return res.status(404).json({
@@ -239,14 +229,20 @@ export async function confirmar(req, res) {
       });
     }
 
-    // Atualiza status e confirmadoEm
-    agendamento.status = "confirmado";
-    agendamento.confirmadoEm = new Date();
-    agendamento.tokenConfirmacao = undefined;
-    
-    console.log('💾 Salvando agendamento confirmado...');
-    await agendamento.save();
-    console.log('✅ Agendamento confirmado com sucesso!');
+    // Atualiza com updateOne e $unset - MELHOR FORMA
+    await Agendamento.updateOne(
+      { _id: agendamento._id },
+      {
+        $set: {
+          status: "confirmado",
+          confirmadoEm: new Date(),
+        },
+        $unset: { tokenConfirmacao: 1 },
+      }
+    );
+
+    // Busca o agendamento atualizado para retornar
+    const agendamentoAtualizado = await Agendamento.findById(agendamento._id);
 
     return res.status(200).json({
       sucesso: true,
