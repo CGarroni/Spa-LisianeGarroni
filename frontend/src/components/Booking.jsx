@@ -70,6 +70,29 @@ function Booking() {
       <div className="container">
         <h2>Agende Seu Horário</h2>
 
+        {/* Aviso de formulário em teste */}
+        <div style={{
+          backgroundColor: '#fff3cd',
+          border: '1px solid #ffc107',
+          borderLeft: '4px solid #ffc107',
+          borderRadius: '6px',
+          padding: '14px 16px',
+          marginBottom: '24px',
+          display: 'flex',
+          alignItems: 'flex-start',
+          gap: '10px'
+        }}>
+          <span style={{ fontSize: '18px' }}>ℹ️</span>
+          <div>
+            <p style={{ margin: '0 0 4px 0', fontWeight: '500', color: '#856404' }}>
+              Formulário em fase de teste
+            </p>
+            <p style={{ margin: '0', fontSize: '14px', color: '#856404' }}>
+              Após enviar o formulário, confirme seu agendamento pelo WhatsApp clicando no botão flutuante
+            </p>
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit} className="booking-form">
           {/* Nome */}
           <div className="form-group">
