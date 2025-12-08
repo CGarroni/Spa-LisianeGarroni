@@ -1,0 +1,63 @@
+# robots.txt para Spa Lisiane Garroni
+# Vercel Deployment: https://spalisianegarroni.vercel.app
+
+# Todos os bots
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: *?utm_
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+Crawl-delay: 1
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+
+# AdsBot Google
+User-agent: AdsBot-Google
+Allow: /
+
+# Google Image
+User-agent: Googlebot-Image
+Allow: /
+
+# Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
