@@ -5,7 +5,7 @@ function Booking() {
     nome: '',
     email: '',
     telefone: '',
-    servico: 'Massagem Relaxante',
+    servico: '',
     dataAgendamento: '',
     horario: '',
     observacoes: ''
@@ -49,7 +49,7 @@ function Booking() {
         nome: '',
         email: '',
         telefone: '',
-        servico: 'Massagem Relaxante',
+        servico: '',
         dataAgendamento: '',
         horario: '',
         observacoes: ''
@@ -138,11 +138,6 @@ function Booking() {
             <label>Serviço Desejado *</label>
             <select name="servico" value={formData.servico} onChange={handleChange} required>
   <option value="">Selecione um serviço</option>
-  
-  <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ MÉTODOS TRADICIONAIS ━━━</option>
-  <option value="Massagem Relaxante">Massagem Relaxante - R$ 150,00</option>
-  <option value="Drenagem Linfática Tradicional">Drenagem Linfática Tradicional - R$ 165,00</option>
-  <option value="Reiki">Reiki - R$ 120,00</option>
 
   <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ MÉTODOS RENATA FRANÇA ━━━</option>
   <option value="Miracle Touch">Miracle Touch - R$ 460,00</option>

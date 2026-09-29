@@ -677,6 +677,147 @@ body {
   color: #666;
 }
 
+/* MINHA HISTÓRIA */
+
+.section-subtitle {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 18px;
+  margin: -40px 0 50px;
+  font-style: italic;
+}
+
+.story-layout {
+  align-items: start;
+}
+
+.story-photo img {
+  position: sticky;
+  top: 100px;
+}
+
+.story-lead {
+  font-size: 19px !important;
+  font-weight: 600;
+  color: var(--primary-color) !important;
+}
+
+.btn-read-more {
+  margin-top: 10px;
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-read-more:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* ONDE ESTAMOS */
+
+.location {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.location h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.location-intro {
+  text-align: center;
+  color: #666;
+  font-size: 17px;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+}
+
+.location-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.location-image img {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  height: auto;
+}
+
+.location-address {
+  background: var(--light-color);
+  border-left: 4px solid var(--accent-color);
+  padding: 20px 25px;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 35px;
+}
+
+.location-address p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.location-address strong {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.location h3 {
+  color: var(--primary-color);
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.parking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.parking-list li {
+  padding: 14px 0 14px 40px;
+  position: relative;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.12);
+}
+
+.parking-list li::before {
+  content: '🅿️';
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+}
+
+.parking-list li strong {
+  color: var(--primary-color);
+}
+
+.location-note {
+  color: #777;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 /* PACKAGES BRIDGE */
 
 .packages-bridge {
@@ -1444,9 +1585,20 @@ body {
     gap: 40px;
   }
 
+  .location-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .story-photo img {
+    position: static;
+    max-width: 420px;
+  }
+
   .services h2,
   .about h2,
-  .booking h2 {
+  .booking h2,
+  .location h2 {
     font-size: 32px;
   }
 

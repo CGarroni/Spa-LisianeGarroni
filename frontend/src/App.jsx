@@ -9,6 +9,7 @@ import Gallery from './components/Gallery'
 import VideoSection from './components/VideoSection'
 import Pricing from "./components/Pricing";
 import Booking from './components/Booking'
+import Location from './components/Location'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 
@@ -17,6 +18,7 @@ function App() {
     <div className="app">
       <Header />
       <Hero />
+      <About />
       <Services />
 <div className="packages-bridge">
   <div className="container">
@@ -24,10 +26,10 @@ function App() {
     <p>Confira nossos <a href="#pricing">pacotes especiais</a> com descontos exclusivos!</p>
   </div>
 </div>
-      <About />
       <Gallery />
       <VideoSection />
       <Pricing />
+      <Location />
       <Booking />
       <Footer />
        <WhatsAppButton />

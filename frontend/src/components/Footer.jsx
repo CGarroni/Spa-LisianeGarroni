@@ -16,7 +16,8 @@ function Footer() {
             <h4>Contato</h4>
             <p>📞 (51)999308532</p>
             <p>✉️ garronilisiane@gmail.com</p>
-            <p>📍 Av. Borges de Medeiros, 2500 sala 908 Porto Alegre - RS</p>
+            <p>📍 Av. Borges de Medeiros, 2500 — Sala 908</p>
+            <p>Prime Offices | Praia de Belas — Porto Alegre/RS</p>
           </div>
 
           <div className="footer-section">
