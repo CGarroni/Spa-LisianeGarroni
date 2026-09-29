@@ -100,6 +100,28 @@ const PACOTES = [
     ],
     destaque: false,
   },
+  {
+    tag: "Método Renata França",
+    nome: "Miracle Face em sequência",
+    descricao:
+      "Rejuvenesce, define contornos e reduz o inchaço — 10% off em 4 sessões, 20% off em 8.",
+    linhas: [
+      ["4 sessões", "R$ 936"],
+      ["8 sessões", "R$ 1.664"],
+    ],
+    destaque: false,
+  },
+  {
+    tag: "Bem-estar",
+    nome: "Relaxante ou Terapêutica em sequência",
+    descricao:
+      "Relaxamento profundo e constância no cuidado — 10% off em 4 sessões, 20% off em 8.",
+    linhas: [
+      ["4 sessões", "R$ 594"],
+      ["8 sessões", "R$ 1.056"],
+    ],
+    destaque: false,
+  },
 ];
 
 function Experiencias() {
