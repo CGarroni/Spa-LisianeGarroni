@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,7 +17,7 @@
   <!-- Serviços -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#servicos</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -25,7 +25,7 @@
   <!-- Agendamento -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#agendamento</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -33,7 +33,7 @@
   <!-- Sobre -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#sobre</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,7 +41,7 @@
   <!-- Contato -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#contato</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -49,7 +49,7 @@
   <!-- Serviço Específico: Massagem Relaxante -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#servico-relaxante</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>quarterly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,7 +57,7 @@
   <!-- Serviço Específico: Miracle Touch -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#servico-miracle-touch</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>quarterly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -65,7 +65,7 @@
   <!-- Serviço Específico: Drenagem Linfática -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#servico-drenagem</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>quarterly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -73,7 +73,7 @@
   <!-- Serviço Específico: Miracle Face -->
   <url>
     <loc>https://spalisianegarroni.vercel.app/#servico-miracle-face</loc>
-    <lastmod>2024-12-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>quarterly</changefreq>
     <priority>0.7</priority>
   </url>
