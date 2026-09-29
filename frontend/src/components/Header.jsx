@@ -1,7 +1,7 @@
 // Header.jsx - Navegação fixa com transição ao rolar
 
 import { useEffect, useState } from "react";
-import Lotus from "./Lotus";
+import logo from "../assets/images/spa-logo.png";
 import { waLink, MSG_AGENDAR } from "../config/site";
 
 const LINKS = [
@@ -26,14 +26,8 @@ function Header() {
   return (
     <header className={`header${scrolled ? " scrolled" : ""}`}>
       <div className="container header-inner">
-        <a href="#home" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">
-            <Lotus size={26} />
-          </span>
-          <span className="brand-text">
-            Lisiane Garroni
-            <small>Spa · Porto Alegre</small>
-          </span>
+        <a href="#home" className="brand" onClick={() => setOpen(false)} aria-label="SPA Lisiane Garroni — início">
+          <img src={logo} alt="SPA Lisiane Garroni — Método Renata França" className="brand-logo" />
         </a>
 
         <button

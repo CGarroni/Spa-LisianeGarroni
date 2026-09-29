@@ -254,6 +254,13 @@ a {
   text-decoration: none;
 }
 
+.brand-logo {
+  height: 52px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+}
+
 .brand-mark {
   width: 44px;
   height: 44px;
