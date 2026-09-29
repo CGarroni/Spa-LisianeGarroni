@@ -40,7 +40,6 @@ function Header() {
         <nav className={`nav ${isMenuOpen ? 'active' : ''}`}>
           <a href="#home" onClick={closeMenu}>Início</a>
           <a href="#about" onClick={closeMenu}>Minha história</a>
-          <a href="#services" onClick={closeMenu}>Serviços</a>
           <a href="#pricing" onClick={closeMenu}>Pacotes</a>
           <a href="#location" onClick={closeMenu}>Onde estamos</a>
           <a href="#booking" onClick={closeMenu}>Agendar</a>
