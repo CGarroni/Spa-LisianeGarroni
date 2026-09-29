@@ -720,6 +720,45 @@ body {
   color: #fff;
 }
 
+/* Bloco intermediário da história (foto + texto) */
+.story-mid {
+  margin-top: 60px;
+}
+
+/* Texto corrido da história em coluna única */
+.story-fulltext {
+  max-width: 800px;
+  margin: 60px auto 0;
+}
+
+/* Sequências curtas de manifesto */
+.story-manifesto {
+  margin: 28px 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--secondary-color);
+}
+
+.story-manifesto p {
+  font-size: 19px !important;
+  font-weight: 600;
+  color: var(--primary-color) !important;
+  margin-bottom: 8px !important;
+}
+
+/* Encerramento da história */
+.story-closing {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.story-closing p {
+  font-size: 20px !important;
+  font-weight: 700;
+  color: var(--primary-color) !important;
+  font-style: italic;
+  margin-bottom: 6px !important;
+}
+
 /* ONDE ESTAMOS */
 
 .location {
