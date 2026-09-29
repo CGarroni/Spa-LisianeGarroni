@@ -1768,3 +1768,49 @@ body {
     gap: 30px;
   }
 }
+/* AGENDAMENTO VIA WHATSAPP */
+
+.booking-whatsapp {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booking-whatsapp-text {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.btn-whatsapp-booking {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #25d366;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.btn-whatsapp-booking:hover {
+  background: #1fb857;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-whatsapp-booking .whatsapp-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.booking-hours {
+  margin-top: 28px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}

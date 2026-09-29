@@ -1,226 +1,39 @@
-import { useState } from "react";
+// Booking.jsx - Agendamento via WhatsApp
+// O formulário web é uma funcionalidade futura; o histórico do git guarda a versão anterior.
 
 function Booking() {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    servico: '',
-    dataAgendamento: '',
-    horario: '',
-    observacoes: ''
-  })
+  const phoneNumber = '5551999308532'
+  const message = 'Olá! Gostaria de agendar um horário no Spa Lisiane Garroni 🧘‍♀️'
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitMessage, setSubmitMessage] = useState('')
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitMessage('')
-
-    console.log('FormData enviando:', formData)
-    console.log('JSON:', JSON.stringify(formData))
-
-    try {
-    const response = await fetch('https://spa-lisianegarroni.onrender.com/api/agendamentos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-
-    console.log('Response:', response)
-    const data = await response.json()
-    console.log('Data recebida:', data)
-
-    if (data.sucesso) {
-      setSubmitMessage('✅ Agendamento criado com sucesso! Verifique seu email.')
-      setFormData({
-        nome: '',
-        email: '',
-        telefone: '',
-        servico: '',
-        dataAgendamento: '',
-        horario: '',
-        observacoes: ''
-      })
-    } else {
-      setSubmitMessage(`❌ Erro: ${data.erro}`)
-    }
-  } catch (error) {
-    console.error('Erro ao agendar:', error)
-    setSubmitMessage('❌ Erro ao conectar. Servidor está rodando?')
-  } finally {
-    setIsSubmitting(false)
-  }
-}
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
   return (
     <section id="booking" className="booking">
       <div className="container">
         <h2>Agende Seu Horário</h2>
 
-        {/* Aviso de formulário em teste */}
-        <div style={{
-          backgroundColor: '#fff3cd',
-          border: '1px solid #ffc107',
-          borderLeft: '4px solid #ffc107',
-          borderRadius: '6px',
-          padding: '14px 16px',
-          marginBottom: '24px',
-          display: 'flex',
-          alignItems: 'flex-start',
-          gap: '10px'
-        }}>
-          <span style={{ fontSize: '18px' }}>ℹ️</span>
-          <div>
-            <p style={{ margin: '0 0 4px 0', fontWeight: '500', color: '#856404' }}>
-              Formulário em fase de teste
-            </p>
-            <p style={{ margin: '0', fontSize: '14px', color: '#856404' }}>
-              Após enviar o formulário, confirme seu agendamento pelo WhatsApp clicando no botão flutuante
-            </p>
-          </div>
-        </div>
+        <div className="booking-whatsapp">
+          <p className="booking-whatsapp-text">
+            Nossos agendamentos são feitos diretamente pelo WhatsApp.
+            Chame a gente e escolha o melhor dia e horário para o seu momento de cuidado.
+          </p>
 
-        <form onSubmit={handleSubmit} className="booking-form">
-          {/* Nome */}
-          <div className="form-group">
-            <label>Nome Completo *</label>
-            <input
-              type="text"
-              name="nome"
-              value={formData.nome}
-              onChange={handleChange}
-              required
-              placeholder="Seu nome"
-            />
-          </div>
-
-          {/* Email */}
-          <div className="form-group">
-            <label>Email *</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="seu@email.com"
-            />
-          </div>
-
-          {/* Telefone */}
-          <div className="form-group">
-            <label>Telefone/WhatsApp *</label>
-            <input
-              type="tel"
-              name="telefone"
-              value={formData.telefone}
-              onChange={handleChange}
-              required
-              placeholder="(51) 98765-4321"
-            />
-          </div>
-
-          {/* Serviço */}
-          <div className="form-group">
-            <label>Serviço Desejado *</label>
-            <select name="servico" value={formData.servico} onChange={handleChange} required>
-  <option value="">Selecione um serviço</option>
-
-  <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ MÉTODOS RENATA FRANÇA ━━━</option>
-  <option value="Miracle Touch">Miracle Touch - R$ 460,00</option>
-  <option value="Drenagem Linfática Renata França">Drenagem Linfática Renata França - R$ 360,00</option>
-  <option value="Miracle Face">Miracle Face - R$ 240,00</option>
-
-  <option disabled style={{color: '#ff6b35', fontWeight: 'bold'}}>━━━ NOSSOS PACOTES ━━━</option>
-  <option value="Day Spa">Day Spa - R$ 300,00</option>
-  <option value="Spa Renata França">Spa Renata França - R$ 550,00</option>
-  <option value="Seu Momento Miracle">Seu Momento Miracle - R$ 640,00</option>
-</select>
-
-          </div>
-
-          {/* Data */}
-          <div className="form-group">
-            <label>Data Desejada *</label>
-            <input
-              type="date"
-              name="dataAgendamento"
-              value={formData.dataAgendamento}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Hora */}
-          <div className="form-group">
-            <label>Hora *</label>
-            <select name="horario" value={formData.horario} onChange={handleChange} required>
-  <option value="">Selecione um horário</option>
-  <optgroup label="Segunda a Sexta (08:00 - 19:00)">
-    <option value="08:00">08:00</option>
-    <option value="09:00">09:00</option>
-    <option value="10:00">10:00</option>
-    <option value="11:00">11:00</option>
-    <option value="12:00">12:00</option>
-    <option value="13:00">13:00</option>
-    <option value="14:00">14:00</option>
-    <option value="15:00">15:00</option>
-    <option value="16:00">16:00</option>
-    <option value="17:00">17:00</option>
-    <option value="18:00">18:00</option>
-    <option value="19:00">19:00</option>
-  </optgroup>
-  <optgroup label="Sábado (09:00 - 12:00)">
-    <option value="09:00-sab">09:00</option>
-    <option value="10:00-sab">10:00</option>
-    <option value="11:00-sab">11:00</option>
-    <option value="12:00-sab">12:00</option>
-  </optgroup>
-</select>
-
-          </div>
-
-          {/* Observações */}
-          <div className="form-group">
-            <label>Observações</label>
-            <textarea
-              name="observacoes"
-              value={formData.observacoes}
-              onChange={handleChange}
-              placeholder="Alguma anotação importante?"
-              rows="4"
-            />
-          </div>
-
-          {/* Botão Enviar */}
-          <button 
-            type="submit" 
-            className="btn-primary"
-            disabled={isSubmitting}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp-booking"
           >
-            {isSubmitting ? 'Agendando...' : 'Confirmar Agendamento'}
-          </button>
-        </form>
+            <svg viewBox="0 0 32 32" className="whatsapp-icon" aria-hidden="true">
+              <path fill="currentColor" d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.923 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.960 18.828c-0.205-0.103-1.215-0.599-1.403-0.667s-0.325-0.103-0.462 0.103c-0.137 0.205-0.531 0.667-0.651 0.804s-0.239 0.154-0.444 0.051c-0.205-0.103-0.864-0.318-1.644-1.013-0.607-0.542-1.017-1.211-1.137-1.416s-0.012-0.316 0.090-0.418c0.092-0.092 0.205-0.239 0.308-0.359s0.137-0.205 0.205-0.342 0.034-0.256-0.017-0.359c-0.051-0.103-0.462-1.111-0.633-1.522s-0.336-0.346-0.462-0.354c-0.120-0.006-0.256-0.008-0.393-0.008s-0.359 0.051-0.547 0.256c-0.188 0.205-0.718 0.701-0.718 1.709s0.735 1.983 0.838 2.12c0.103 0.137 1.449 2.212 3.509 3.103 0.490 0.212 0.872 0.339 1.170 0.433 0.492 0.157 0.940 0.135 1.293 0.082 0.395-0.059 1.215-0.496 1.386-0.975s0.171-0.889 0.120-0.975c-0.051-0.086-0.188-0.137-0.393-0.239z"/>
+            </svg>
+            Agendar pelo WhatsApp
+          </a>
 
-        {/* Mensagem de sucesso/erro */}
-        {submitMessage && (
-          <div className="message">
-            {submitMessage}
-          </div>
-        )}
+          <p className="booking-hours">
+            Segunda a Sexta, das 08:00 às 19:00 · Sábado, das 09:00 às 12:00
+          </p>
+        </div>
       </div>
     </section>
   )
