@@ -26,9 +26,9 @@ function Hero() {
 
 			<div className="container">
 				<div className="hero-content">
-					<h2>Bem-vindo ao Spa Lisiane Garroni</h2>
+					<h2>Eu não sonhei apenas em ter um SPA.</h2>
 					<p>
-						Experimente o verdadeiro relaxamento com nossos serviços premium. Técnicas exclusivas do método Renata França para transformar seu corpo e mente.
+						Eu sonhei em criar um lugar onde mulheres pudessem voltar a se enxergar.
 					</p>
 
 					<button
