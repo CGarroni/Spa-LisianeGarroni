@@ -1565,4 +1565,39 @@ a {
     grid-template-columns: 1fr;
     gap: 36px;
   }
+
+  /* CTA final proporcional no mobile */
+  .booking-final {
+    padding: 48px 24px;
+    border-radius: 24px;
+  }
+
+  .booking-final .bf-logo {
+    height: 44px;
+    margin-bottom: 20px;
+  }
+
+  .booking-final h2 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .booking-final > p {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .booking-final .btn-gold {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    padding: 16px 18px;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .booking-hours {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    line-height: 2;
+  }
 }
