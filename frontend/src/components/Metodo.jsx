@@ -2,7 +2,7 @@
 
 import Reveal from "./Reveal";
 import { waLink } from "../config/site";
-import metodoBanner from "../assets/images/menu/trad-hands-v2.jpg";
+import metodoBanner from "../assets/images/menu/trad-hands-v3.jpg";
 
 const CREDENCIAIS = [
   { valor: "Pupila", rotulo: "do Método Renata França" },

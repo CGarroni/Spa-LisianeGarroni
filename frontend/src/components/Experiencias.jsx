@@ -2,9 +2,9 @@
 
 import Reveal from "./Reveal";
 import { waLink } from "../config/site";
-import imgMiracleTouch from "../assets/images/menu/serv-miracle-touch-v2.jpg";
-import imgDrenagem from "../assets/images/menu/serv-drenagem-rf-v2.jpg";
-import imgMiracleFace from "../assets/images/menu/serv-miracle-face-v2.jpg";
+import imgMiracleTouch from "../assets/images/menu/serv-miracle-touch-v3.jpg";
+import imgDrenagem from "../assets/images/menu/serv-drenagem-rf-v3.jpg";
+import imgMiracleFace from "../assets/images/menu/serv-miracle-face-v3.jpg";
 import imgRelaxante from "../assets/images/menu/serv-relaxante.jpg";
 import imgEstetica from "../assets/images/menu/serv-estetica.jpg";
 import imgNutri from "../assets/images/menu/serv-nutri.jpg";
