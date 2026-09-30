@@ -1,7 +1,7 @@
 // Hero.jsx - Abertura editorial: a frase da Lisiane + retrato em arco
 
 import Reveal from "./Reveal";
-import Lotus from "./Lotus";
+import logo from "../assets/images/spa-logo.png";
 import { waLink, MSG_AGENDAR } from "../config/site";
 import lisianeHistoria from "../assets/images/lisiane-historia.jpeg";
 
@@ -60,7 +60,7 @@ function Hero() {
             <img src={lisianeHistoria} alt="Lisiane Garroni, fundadora do SPA" />
           </div>
           <div className="hero-badge">
-            <Lotus size={30} className="badge-lotus" />
+            <img src={logo} alt="SPA Lisiane Garroni" className="badge-logo" />
             <strong>Método Renata França</strong>
             <span>Pupila oficial do método</span>
           </div>

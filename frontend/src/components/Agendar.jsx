@@ -1,7 +1,7 @@
 // Agendar.jsx - CTA final: calmo, luxuoso, direto ao WhatsApp
 
 import Reveal from "./Reveal";
-import Lotus from "./Lotus";
+import logo from "../assets/images/spa-logo.png";
 import { waLink, MSG_AGENDAR, HOURS } from "../config/site";
 
 function Agendar() {
@@ -10,7 +10,7 @@ function Agendar() {
       <div className="container">
         <Reveal>
           <div className="booking-final">
-            <Lotus size={48} className="bf-lotus" />
+            <img src={logo} alt="SPA Lisiane Garroni" className="bf-logo" />
             <h2>
               Seu momento começa com <em>uma conversa.</em>
             </h2>

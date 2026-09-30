@@ -506,6 +506,13 @@ a {
   margin-bottom: 8px;
 }
 
+.hero-badge .badge-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
 .hero-badge strong {
   display: block;
   font-family: var(--font-display);
@@ -1316,6 +1323,17 @@ a {
 .booking-final .bf-lotus {
   color: var(--gold-soft);
   margin-bottom: 24px;
+}
+
+.booking-final .bf-logo {
+  height: 56px;
+  width: auto;
+  margin-bottom: 26px;
+}
+
+.footer-bottom .fb-logo {
+  height: 22px;
+  width: auto;
 }
 
 .booking-final h2 {

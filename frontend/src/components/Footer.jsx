@@ -1,6 +1,6 @@
 // Footer.jsx - Rodapé minimalista
 
-import Lotus from "./Lotus";
+import logo from "../assets/images/spa-logo.png";
 import { waLink, ADDRESS, HOURS } from "../config/site";
 
 function Footer() {
@@ -75,7 +75,7 @@ function Footer() {
         <div className="footer-bottom">
           <span>© 2026 SPA Lisiane Garroni · Todos os direitos reservados</span>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-            <Lotus size={18} /> Feito com cuidado em Porto Alegre
+            <img src={logo} alt="SPA Lisiane Garroni" className="fb-logo" /> Feito com cuidado em Porto Alegre
           </span>
         </div>
       </div>
