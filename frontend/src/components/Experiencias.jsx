@@ -41,27 +41,27 @@ const SERVICOS = [
     tag: "Bem-estar",
     nome: "Massagem Relaxante ou Terapêutica",
     descricao:
-      "Alivia tensões, reduz o estresse e melhora a qualidade do sono. Uma sensação profunda de bem-estar — atendimentos às segundas e quartas.",
+      "Alivia tensões, reduz o estresse e melhora a qualidade do sono, com a massoterapeuta Pamela Nunes. Uma sensação profunda de bem-estar — atendimentos às segundas e quartas.",
     preco: "R$ 165",
     duracao: "60 minutos",
     img: imgRelaxante,
   },
   {
     tag: "Estética Avançada",
-    nome: "Estética com Dra. Franciele Monteiro",
+    nome: "Farmácia Estética — Dra. Franciele Monteiro",
     descricao:
-      "Cuidar da pele é investir em saúde, autoestima e bem-estar. Procedimentos personalizados, seguros e com tecnologia de ponta.",
-    preco: "a partir de R$ 100",
-    duracao: "consulte",
+      "Cuidar da pele é investir em saúde, autoestima e bem-estar, com a farmacêutica esteta Dra. Franciele Monteiro. Procedimentos personalizados, seguros e com tecnologia de ponta.",
+    preco: "Entre em contato",
+    duracao: "Entre em contato",
     img: imgEstetica,
   },
   {
     tag: "Saúde",
-    nome: "Nutricionista — Dra. Juliana Shimit",
+    nome: "Nutrição — Dra. Juliana Urtassum Schmitt",
     descricao:
       "Orientação nutricional para um corpo mais saudável e uma vida mais equilibrada, em sintonia com o seu momento.",
-    preco: "consulte",
-    duracao: "consulte",
+    preco: "Entre em contato",
+    duracao: "Entre em contato",
     img: imgNutri,
   },
 ];

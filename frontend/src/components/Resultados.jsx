@@ -1,16 +1,30 @@
-// Resultados.jsx - Carrossel de resultados reais (restilizado)
+// Resultados.jsx - Carrossel de resultados reais (fotos de clientes)
 
 import { useState } from "react";
 import Reveal from "./Reveal";
 import { waLink } from "../config/site";
-import foto1 from "../assets/images/drenagem-linfatica.jpeg";
-import foto2 from "../assets/images/galeria-2.jpeg";
-import foto3 from "../assets/images/miracle-touch.jpeg";
+import foto1 from "../assets/images/resultados/resultado-01.jpg";
+import foto2 from "../assets/images/resultados/resultado-02.jpg";
+import foto3 from "../assets/images/resultados/resultado-03.jpg";
+import foto4 from "../assets/images/resultados/resultado-04.jpg";
+import foto5 from "../assets/images/resultados/resultado-05.jpg";
+import foto6 from "../assets/images/resultados/resultado-06.jpg";
+import foto7 from "../assets/images/resultados/resultado-07.jpg";
+import foto8 from "../assets/images/resultados/resultado-08.jpg";
+import foto9 from "../assets/images/resultados/resultado-09.jpg";
+import foto10 from "../assets/images/resultados/resultado-10.jpg";
 
 const IMAGENS = [
-  { src: foto1, titulo: "Drenagem Linfática" },
-  { src: foto2, titulo: "Massagem Modeladora" },
+  { src: foto1, titulo: "Massagem Modeladora" },
+  { src: foto2, titulo: "Drenagem Linfática" },
   { src: foto3, titulo: "Miracle Touch" },
+  { src: foto4, titulo: "Massagem Modeladora" },
+  { src: foto5, titulo: "Drenagem Linfática" },
+  { src: foto6, titulo: "Miracle Touch" },
+  { src: foto7, titulo: "Drenagem Linfática" },
+  { src: foto8, titulo: "Drenagem Linfática" },
+  { src: foto9, titulo: "Massagem Modeladora" },
+  { src: foto10, titulo: "Miracle Touch" },
 ];
 
 function Resultados() {
