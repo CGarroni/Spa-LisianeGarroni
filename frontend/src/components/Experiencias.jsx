@@ -50,9 +50,9 @@ const SERVICOS = [
     tag: "Estética Avançada",
     nome: "Farmácia Estética — Dra. Franciele Monteiro",
     descricao:
-      "Cuidar da pele é investir em saúde, autoestima e bem-estar, com a farmacêutica esteta Dra. Franciele Monteiro. Procedimentos personalizados, seguros e com tecnologia de ponta.",
-    preco: "Entre em contato",
-    duracao: "Entre em contato",
+      "Avaliação (R$ 100, abatida no serviço do dia), limpeza de pele (R$ 260), toxina botulínica, bioestimulador, microagulhamento, preenchimento, peeling e tratamento corporal — com a farmacêutica esteta Dra. Franciele Monteiro. Demais procedimentos, consulte.",
+    preco: "Consulte",
+    duracao: "Consulte",
     img: imgEstetica,
   },
   {

@@ -33,7 +33,7 @@ const EQUIPE = [
     iniciais: "MC",
     nome: "Maria de Lourdes Cargnin",
     cargo: "Terapeuta Integrativa",
-    detalhe: "Cuidado integral do bem-estar",
+    detalhe: "Atendimento temporário · outubro e novembro",
   },
 ];
 
