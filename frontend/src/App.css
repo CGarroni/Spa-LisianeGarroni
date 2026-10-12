@@ -219,6 +219,16 @@ a {
   flex: none;
 }
 
+.btn-sm {
+  font-size: 12px;
+  padding: 12px 28px;
+}
+
+.btn-sm .wa-icon {
+  width: 17px;
+  height: 17px;
+}
+
 /* ---------- Header ---------- */
 
 .header {

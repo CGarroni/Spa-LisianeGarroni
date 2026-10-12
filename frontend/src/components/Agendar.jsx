@@ -22,7 +22,7 @@ function Agendar() {
               href={waLink(MSG_AGENDAR)}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-gold"
+              className="btn btn-gold btn-sm"
             >
               <svg viewBox="0 0 32 32" className="wa-icon" aria-hidden="true">
                 <path
