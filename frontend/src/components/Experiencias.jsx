@@ -50,7 +50,7 @@ const SERVICOS = [
     tag: "Estética Avançada",
     nome: "Farmácia Estética — Dra. Franciele Monteiro",
     descricao:
-      "Avaliação (R$ 100, abatida no serviço do dia), limpeza de pele (R$ 260), toxina botulínica, bioestimulador, microagulhamento, preenchimento, peeling e tratamento corporal — com a farmacêutica esteta Dra. Franciele Monteiro. Demais procedimentos, consulte.",
+      "Avaliação (R$ 100), limpeza de pele (R$ 260), toxina botulínica, bioestimulador, microagulhamento, preenchimento, peeling e mais — com a farmacêutica esteta Dra. Franciele Monteiro. Consulte.",
     preco: "Consulte",
     duracao: "Consulte",
     img: imgEstetica,
@@ -151,7 +151,13 @@ function Experiencias() {
                   <h3>{s.nome}</h3>
                   <p>{s.descricao}</p>
                   <div className="exp-meta">
-                    <span className="exp-price">
+                    <span
+                      className={
+                        s.preco.includes("R$")
+                          ? "exp-price"
+                          : "exp-price exp-price-text"
+                      }
+                    >
                       <small>Sessão</small>
                       {s.preco}
                     </span>

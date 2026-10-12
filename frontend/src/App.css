@@ -165,10 +165,10 @@ a {
   gap: 10px;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 17px 38px;
+  padding: 14px 32px;
   border-radius: 100px;
   text-decoration: none;
   border: 1px solid transparent;
@@ -933,6 +933,12 @@ a {
   font-size: 27px;
   font-weight: 700;
   color: var(--espresso);
+  white-space: nowrap;
+}
+
+.exp-price-text {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .exp-price small {
@@ -949,6 +955,7 @@ a {
   font-size: 14px;
   color: var(--muted);
   letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
 .exp-cta {
@@ -1084,7 +1091,7 @@ a {
 /* ---------- Resultados ---------- */
 
 .results-frame {
-  max-width: 860px;
+  max-width: 680px;
   margin: 56px auto 0;
   position: relative;
 }
