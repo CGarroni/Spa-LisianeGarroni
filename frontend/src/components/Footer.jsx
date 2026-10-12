@@ -77,6 +77,14 @@ function Footer() {
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
             <img src={logo} alt="SPA Lisiane Garroni" className="fb-logo" /> Feito com cuidado em Porto Alegre
           </span>
+          <a
+            href="https://fg-digital.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fg-credit"
+          >
+            por FG Digital
+          </a>
         </div>
       </div>
     </footer>

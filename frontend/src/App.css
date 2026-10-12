@@ -1442,10 +1442,119 @@ a {
   padding-top: 28px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
   font-size: 13px;
   color: #8a755a;
+}
+
+.fg-credit {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #6e5c46;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.fg-credit:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+
+/* ---------- Banner de cookies (LGPD) ---------- */
+
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  z-index: 200;
+  max-width: 560px;
+  width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-radius: 16px;
+  background: rgba(36, 26, 16, 0.96);
+  border: 1px solid rgba(211, 172, 107, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  animation: cookieIn 0.5s var(--ease);
+}
+
+@keyframes cookieIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--cream);
+  flex: 1;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex: none;
+}
+
+.cookie-accept,
+.cookie-decline {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.cookie-accept {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #fff;
+  font-weight: 500;
+}
+
+.cookie-accept:hover {
+  transform: translateY(-2px);
+}
+
+.cookie-decline {
+  background: transparent;
+  border-color: rgba(211, 172, 107, 0.35);
+  color: #a68f68;
+}
+
+.cookie-decline:hover {
+  border-color: var(--gold);
+  color: var(--cream);
+}
+
+@media (max-width: 560px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    bottom: 16px;
+  }
+
+  .cookie-actions {
+    justify-content: center;
+  }
 }
 
 /* ---------- WhatsApp flutuante ---------- */

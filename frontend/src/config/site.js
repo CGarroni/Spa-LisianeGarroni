@@ -18,3 +18,7 @@ export const ADDRESS = {
 };
 
 export const HOURS = "Segunda a Sexta, das 08:00 às 19:00 · Sábado, das 09:00 às 12:00";
+
+// Meta Pixel — preencher com o ID do pixel quando a cliente autorizar.
+// Enquanto vazio, nenhum script de rastreamento é carregado (site inalterado).
+export const META_PIXEL_ID = "";
