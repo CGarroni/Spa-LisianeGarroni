@@ -10,6 +10,7 @@ import Historia from "./components/Historia";
 import Metodo from "./components/Metodo";
 import Experiencias from "./components/Experiencias";
 import Resultados from "./components/Resultados";
+import Depoimentos from "./components/Depoimentos";
 import Equipe from "./components/Equipe";
 import Localizacao from "./components/Localizacao";
 import Agendar from "./components/Agendar";
@@ -63,6 +64,7 @@ function App() {
         <Metodo />
         <Experiencias />
         <Resultados />
+        <Depoimentos />
         <Equipe />
         <Localizacao />
         <Agendar />
