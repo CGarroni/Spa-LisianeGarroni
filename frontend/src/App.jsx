@@ -34,6 +34,25 @@ function App() {
     return () => document.removeEventListener("click", aoClicar);
   }, []);
 
+  // Rolagem suave com offset do header para links âncora (garante em todos os navegadores)
+  useEffect(() => {
+    const aoAncora = (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      const hash = link.getAttribute("href");
+      if (!hash || hash.length < 2) return;
+      const destino = document.querySelector(hash);
+      if (!destino) return;
+      e.preventDefault();
+      const topo =
+        destino.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top: topo, behavior: "smooth" });
+      history.replaceState(null, "", hash);
+    };
+    document.addEventListener("click", aoAncora);
+    return () => document.removeEventListener("click", aoAncora);
+  }, []);
+
   return (
     <>
       <Header />

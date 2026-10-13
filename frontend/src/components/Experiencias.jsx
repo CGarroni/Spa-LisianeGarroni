@@ -66,6 +66,49 @@ const SERVICOS = [
   },
 ];
 
+const VALORES = [
+  {
+    nome: "Miracle Touch",
+    detalhe: "Massagem modeladora · 70 min",
+    preco: "R$ 460",
+  },
+  {
+    nome: "Drenagem Linfática RF",
+    detalhe: "Método Renata França · 55 min",
+    preco: "R$ 360",
+  },
+  {
+    nome: "Miracle Face",
+    detalhe: "Massagem facial · 20 min",
+    preco: "R$ 260",
+  },
+  {
+    nome: "Massagem Relaxante ou Terapêutica",
+    detalhe: "Com Pamela Nunes · 60 min · seg e qua",
+    preco: "R$ 165",
+  },
+  {
+    nome: "Avaliação estética",
+    detalhe: "Dra. Franciele Monteiro",
+    preco: "R$ 100",
+  },
+  {
+    nome: "Limpeza de pele",
+    detalhe: "Dra. Franciele Monteiro",
+    preco: "R$ 260",
+  },
+  {
+    nome: "Nutrição",
+    detalhe: "Dra. Juliana Urtassum Schmitt",
+    preco: "Consulte",
+  },
+  {
+    nome: "Farmácia Estética",
+    detalhe: "Demais procedimentos · Dra. Franciele Monteiro",
+    preco: "Consulte",
+  },
+];
+
 const PACOTES = [
   {
     tag: "Pacote misto",
@@ -217,6 +260,43 @@ function Experiencias() {
               </Reveal>
             ))}
           </div>
+        </div>
+
+        <div className="valores">
+          <Reveal>
+            <div className="valores-head">
+              <span className="eyebrow">Valores</span>
+              <h3>
+                Menu <em>resumido</em>
+              </h3>
+              <p>
+                Para quem já sabe o que quer: escolha e chame direto no
+                WhatsApp.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal>
+            <ul className="valores-list">
+              {VALORES.map((v) => (
+                <li className="valores-row" key={v.nome}>
+                  <div className="valores-info">
+                    <strong>{v.nome}</strong>
+                    <span>{v.detalhe}</span>
+                  </div>
+                  <span className="valores-price">{v.preco}</span>
+                  <a
+                    href={waLink(`Olá! Quero agendar: ${v.nome} 🧘‍♀️`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-sm"
+                    aria-label={`Agendar ${v.nome} pelo WhatsApp`}
+                  >
+                    Agendar
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </div>
     </section>

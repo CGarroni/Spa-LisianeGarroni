@@ -3,8 +3,8 @@
 import Reveal from "./Reveal";
 import Lotus from "./Lotus";
 import { waLink } from "../config/site";
-import lisianeHistoria from "../assets/images/lisiane-historia.jpeg";
-import lisianeCertificacao from "../assets/images/lisiane-certificacao.jpeg";
+import lisianeFormacaoRf from "../assets/images/lisiane-formacao-rf.jpg";
+import lisianeTernoBege from "../assets/images/lisiane-terno-bege.jpg";
 
 function Historia() {
   return (
@@ -24,7 +24,7 @@ function Historia() {
         {/* Capítulo 1 — O começo */}
         <div className="chapter">
           <Reveal className="chapter-media arch">
-            <img src={lisianeHistoria} alt="Lisiane Garroni" />
+            <img src={lisianeTernoBege} alt="Lisiane Garroni" />
             <p className="media-caption">Lisiane Garroni · fundadora</p>
           </Reveal>
           <Reveal delay={120}>
@@ -54,10 +54,10 @@ function Historia() {
         <div className="chapter flip">
           <Reveal className="chapter-media">
             <img
-              src={lisianeCertificacao}
-              alt="Lisiane Garroni — certificação no Método Renata França"
+              src={lisianeFormacaoRf}
+              alt="Lisiane Garroni com Renata França — formação exclusiva no método"
             />
-            <p className="media-caption">Especialização · Método Renata França</p>
+            <p className="media-caption">Formação exclusiva · Método Renata França</p>
           </Reveal>
           <Reveal delay={120}>
             <p className="chapter-kicker">Capítulo 2 · O método</p>

@@ -444,9 +444,10 @@ a {
 }
 
 .proof-item strong {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--espresso);
 }
 
@@ -939,9 +940,10 @@ a {
 }
 
 .exp-price {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 27px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--espresso);
   white-space: nowrap;
 }
@@ -1089,13 +1091,107 @@ a {
 }
 
 .pkg-row strong {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--espresso);
 }
 
 .package-card.featured .pkg-row strong {
   color: var(--gold-soft);
+}
+
+/* ---------- Valores (menu resumido) ---------- */
+
+.valores {
+  margin-top: 90px;
+}
+
+.valores-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 36px;
+}
+
+.valores-head h3 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--espresso);
+  margin: 12px 0 10px;
+}
+
+.valores-head h3 em {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+
+.valores-head p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.valores-list {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 780px;
+  padding: 0;
+}
+
+.valores-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.valores-list li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.valores-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.valores-info strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--espresso);
+}
+
+.valores-info span {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.valores-price {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--espresso);
+}
+
+@media (max-width: 640px) {
+  .valores-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .valores-info {
+    flex: 1 1 100%;
+  }
+
+  .valores-row .btn {
+    flex: 1;
+  }
 }
 
 /* ---------- Resultados ---------- */
