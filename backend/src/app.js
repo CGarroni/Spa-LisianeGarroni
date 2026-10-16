@@ -12,7 +12,7 @@ const app = express();
 // Middleware - ORDEM CORRETA
 app.use(cors({
   origin: [
-    'https://spalisianegarroni.vercel.app',
+    'https://spalisianegarroni.com.br',
     'http://localhost:5173',
     'http://localhost:3000'
   ],

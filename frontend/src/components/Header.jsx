@@ -1,53 +1,66 @@
-import { useState } from 'react'
-import spaLogo from '../assets/images/spa-logo.png'
+// Header.jsx - Navegação fixa com transição ao rolar
+
+import { useEffect, useState } from "react";
+import logo from "../assets/images/spa-logo.png";
+import { waLink, MSG_AGENDAR } from "../config/site";
+
+const LINKS = [
+  { href: "#historia", label: "História" },
+  { href: "#metodo", label: "O Método" },
+  { href: "#experiencias", label: "Experiências" },
+  { href: "#valores", label: "Valores" },
+  { href: "#resultados", label: "Resultados" },
+  { href: "#equipe", label: "Equipe" },
+  { href: "#location", label: "Onde estamos" },
+];
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="logo">
-          <div className="logo-image">
-            <img src={spaLogo} alt="Spa Lisiane Garroni Logo" />
-          </div>
-          <div className="logo-text">
-            <h1>Spa Lisiane Garroni</h1>
-            <p className="tagline">Seu lugar de paz e relaxamento</p>
-          </div>
-        </div>
-        
-        {/* BOTÃO HAMBURGER */}
-        <button 
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-          onClick={toggleMenu}
+    <header className={`header${scrolled ? " scrolled" : ""}`}>
+      <div className="container header-inner">
+        <a href="#home" className="brand" onClick={() => setOpen(false)} aria-label="SPA Lisiane Garroni — início">
+          <img src={logo} alt="SPA Lisiane Garroni — Método Renata França" className="brand-logo" />
+        </a>
+
+        <button
+          className={`hamburger${open ? " active" : ""}`}
+          onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        
-        {/* MENU */}
-        <nav className={`nav ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#home" onClick={closeMenu}>Início</a>
-          <a href="#services" onClick={closeMenu}>Serviços</a>
-          <a href="#pricing" onClick={closeMenu}>Pacotes</a>
-          <a href="#about" onClick={closeMenu}>Sobre</a>
-          <a href="#booking" onClick={closeMenu}>Agendar</a>
-          <a href="#contact" onClick={closeMenu}>Contato</a>
+
+        <nav className={`nav${open ? " active" : ""}`}>
+          {LINKS.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              {l.label}
+            </a>
+          ))}
+          <a
+            href={waLink(MSG_AGENDAR)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-cta"
+            onClick={() => setOpen(false)}
+          >
+            Agendar
+          </a>
         </nav>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

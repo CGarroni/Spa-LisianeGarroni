@@ -1,7 +1,4 @@
 import { useState } from "react";
-import relaxanteImg from '../assets/images/relaxante.jpeg';
-import linfaTradImg from '../assets/images/linfa-trad.jpeg';
-import reikiImg from '../assets/images/reiki.jpeg';
 import miracleTouchImg from '../assets/images/miracle-touch.jpeg';
 import drenaLinfaImg from '../assets/images/drena-linfa.jpeg';
 import miracleFaceImg from '../assets/images/miracle-face.jpeg';
@@ -10,54 +7,6 @@ function Services() {
   const [expandedPackages, setExpandedPackages] = useState(null);
 
   const therapists = [
-    {
-      id: 1,
-      name: "Métodos tradicionais",
-      services: [
-        {
-          id: 1,
-          name: "Massagem Relaxante",
-          description: "Massagem completa para relaxamento total",
-          duration: "60 min",
-          price: "R$ 150,00",
-          image: relaxanteImg,
-          packages: [
-            { qty: "5 Sessões", price: "R$ 675,00" },
-            { qty: "10 Sessões", price: "R$ 1.200,00" },
-            { qty: "Mensal 1x", price: "R$ 510,00" },
-            { qty: "Mensal 2x", price: "R$ 900,00" }
-          ]
-        },
-        {
-          id: 2,
-          name: "Drenagem Linfática Tradicional",
-          description: "Terapia para melhorar circulação",
-          duration: "60 min",
-          price: "R$ 165,00",
-          image: linfaTradImg,
-          packages: [
-            { qty: "5 Sessões", price: "R$ 742,00" },
-            { qty: "10 Sessões", price: "R$ 1.360,00" },
-            { qty: "Mensal 1x", price: "R$ 561,00" },
-            { qty: "Mensal 2x", price: "R$ 990,00" }
-          ]
-        },
-        {
-          id: 3,
-          name: "Reiki",
-          description: "Terapia energética para bem-estar",
-          duration: "60 min",
-          price: "R$ 120,00",
-          image: reikiImg,
-          packages: [
-            { qty: "5 Sessões", price: "R$ 540,00" },
-            { qty: "10 Sessões", price: "R$ 980,00" },
-            { qty: "Mensal 1x", price: "R$ 408,00" },
-            { qty: "Mensal 2x", price: "R$ 720,00" }
-          ]
-        }
-      ]
-    },
     {
       id: 2,
       name: "Métodos Renata França",
