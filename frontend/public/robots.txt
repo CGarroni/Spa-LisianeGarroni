@@ -1,3 +1,4 @@
+Sitemap: https://www.spalisianegarroni.com.br/sitemap.xml
 # robots.txt para Spa Lisiane Garroni
 # Vercel Deployment: https://spalisianegarroni.vercel.app
 
@@ -8,7 +9,6 @@ Disallow: /admin
 Disallow: /api
 Disallow: /private
 Disallow: /*.json$
-Disallow: /*.xml$
 Disallow: *?utm_
 Crawl-delay: 1
 Request-rate: 1/1s
